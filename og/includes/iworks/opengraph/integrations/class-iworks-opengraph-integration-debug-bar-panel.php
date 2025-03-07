@@ -1,7 +1,7 @@
 <?php
 /*
 
-Copyright 2023-2024 Marcin Pietrzak (marcin@iworks.pl)
+Copyright 2023-2025 Marcin Pietrzak (marcin@iworks.pl)
 
 this program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -38,7 +38,16 @@ class iWorks_OpenGraph_Integration_Debug_Bar_Panel extends Debug_Bar_Panel {
 		);
 		$og = apply_filters( 'og_get_og_array', array() );
 		echo '<table>';
+		echo '<thead>';
+		printf(
+			'<tr><th style="width:10em;text-align:right">%s</th><th style="width:1em;text-align:center">⇒</th><th>%s</th></tr>',
+			esc_html__( 'OG Tag', 'og' ),
+			esc_html_e( 'OG Value', 'og' )
+		);
+		echo '</thead>';
+		echo '<tbody>';
 		$this->echo_array( $og );
+		echo '</tbody>';
 		echo '</table>';
 		echo '</div>';
 	}
