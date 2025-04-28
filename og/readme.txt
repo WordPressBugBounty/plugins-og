@@ -4,7 +4,7 @@ Donate link: https://ko-fi.com/iworks?utm_source=og&utm_medium=readme-donate
 Tags: Facebook, Open Graph, LinkedIn, Social Media, X
 Requires at least: 6.0
 Tested up to: 6.8
-Stable tag: 3.3.5
+Stable tag: 3.3.6
 Requires PHP: 8.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -151,6 +151,9 @@ Rich filter implementation allows you to change almost every output of this plug
 == Changelog ==
 
 Project maintained on github at [iworks/og](https://github.com/iworks/og).
+
+= 3.3.6 (2025-04-28) =
+* Missing parameter "twitter" in call to rt_get_time() function has been fixed. Props for [benact](https://github.com/benact). #22](https://github.com/iworks/og/issues/22).
 
 = 3.3.5 (2025-04-14) =
 * Add Twitter "Reading Time". [#19](https://github.com/iworks/og/issues/19)

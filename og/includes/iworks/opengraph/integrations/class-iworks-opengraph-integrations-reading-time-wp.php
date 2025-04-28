@@ -14,7 +14,7 @@ if ( class_exists( 'iWorks_OpenGraph_Integrations_Reading_Time_WP' ) ) {
 class iWorks_OpenGraph_Integrations_Reading_Time_WP extends iWorks_OpenGraph_Integrations {
 
 	public function __construct() {
-		add_filter( 'og_twitter_array', array( $this, 'add_reading_time' ) );
+		add_filter( 'og_twitter_array', array( $this, 'add_reading_time' ), 123 );
 	}
 
 	public function add_reading_time( $twitter ) {
@@ -24,7 +24,7 @@ class iWorks_OpenGraph_Integrations_Reading_Time_WP extends iWorks_OpenGraph_Int
 		if ( ! class_exists( 'Reading_Time_WP' ) ) {
 			return $twitter;
 		}
-		$time = $this->rt_get_time();
+		$time = $this->rt_get_time( $twitter );
 		if ( ! isset( $twitter['labels'] ) ) {
 			$twitter['labels'] = array();
 		}
