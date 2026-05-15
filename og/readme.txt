@@ -3,8 +3,8 @@ Contributors: iworks
 Donate link: https://ko-fi.com/iworks?utm_source=og&utm_medium=readme-donate
 Tags: Facebook, Open Graph, LinkedIn, Social Media, X
 Requires at least: 6.0
-Tested up to: 6.8
-Stable tag: 3.3.8
+Tested up to: 7.0
+Stable tag: 3.3.9
 Requires PHP: 8.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -223,6 +223,9 @@ Rich filter implementation allows you to change almost every output of this plug
 == Changelog ==
 
 Project maintained on github at [iworks/og](https://github.com/iworks/og).
+
+= 3.3.9 (2026-05-15) =
+* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to version 2.3.2.
 
 = 3.3.8 (2025-10-08) =
 * The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to version 2.3.1.

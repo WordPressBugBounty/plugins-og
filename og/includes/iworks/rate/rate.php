@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 /**
  * iWorks_Rate - Dashboard Notification module.
  *
- * @version 2.3.1
+ * @version 2.3.2
  * @author  iworks (Marcin Pietrzak)
  *
  */
@@ -42,7 +42,7 @@ if ( ! class_exists( 'iworks_rate' ) ) {
 		 * @since 1.0.1
 		 * @var   string
 		 */
-		private $version = '2.3.1';
+		private $version = '2.3.2';
 
 		/**
 		 * $wpdb->options field name.
@@ -321,7 +321,7 @@ if ( ! class_exists( 'iworks_rate' ) ) {
 			/**
 			 * get plugin ID
 			 */
-			$nonce_value = sanitize_text_field( filter_input( INPUT_POST, '_wpnonce', FILTER_DEFAULT ) );
+			$nonce_value = sanitize_text_field( wp_unslash( filter_input( INPUT_POST, '_wpnonce', FILTER_DEFAULT ) ) );
 			if ( ! wp_verify_nonce( $nonce_value, 'iworks-rate' ) ) {
 				wp_send_json_error();
 			}
@@ -390,7 +390,17 @@ if ( ! class_exists( 'iworks_rate' ) ) {
 			if ( ! isset( $this->stored[ $plugin_id ] ) ) {
 				return;
 			}
-			++$this->stored[ $plugin_id ]['last_anniversary'];
+			/**
+			 * set proper anniversary value
+			 *
+			 * @since 2.3.2
+			 */
+			$max   = floor( $this->stored[ $plugin_id ]['last_anniversary_days'] / 365 ) + 1;
+			$value = $this->stored[ $plugin_id ]['last_anniversary'] + 1;
+			$this->stored[ $plugin_id ]['last_anniversary'] = max( $max, $value );
+			/**
+			 * save data
+			 */
 			$this->store_data();
 		}
 
@@ -787,7 +797,7 @@ if ( ! class_exists( 'iworks_rate' ) ) {
 		public function filter_get_advertising_og( $data ) {
 			return array(
 				'iworks-adverting-og' => array(
-					'title'    => __( 'OpenGraph', 'og' ),
+					'title'    => esc_html__( 'OpenGraph', 'og' ),
 					'callback' => array( $this, 'get_advertising_og_content' ),
 					'context'  => 'side',
 					'priority' => 'low',
@@ -803,8 +813,8 @@ if ( ! class_exists( 'iworks_rate' ) ) {
 		public function get_advertising_og_content() {
 			$args = array(
 				'install_plugin_url' => $this->get_install_plugin_url( 'og' ),
-				'plugin_name'        => __( 'OG — Better Share on Social Media', 'og' ),
-				'plugin_wp_home'     => __( 'https://wordpress.org/plugins/og/', 'og' ),
+				'plugin_name'        => esc_html__( 'OG — Better Share on Social Media', 'og' ),
+				'plugin_wp_home'     => esc_url( __( 'https://wordpress.org/plugins/og/', 'og' ) ),
 			);
 			$file = $this->get_file( 'og', 'plugins' );
 			load_template( $file, true, $args );

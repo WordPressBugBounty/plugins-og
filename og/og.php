@@ -4,14 +4,14 @@
  *
  * @package           og
  * @author            Marcin Pietrzak
- * @copyright         2014-2025 Marcin Pietrzak
+ * @copyright         2014-2026 Marcin Pietrzak
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name:       OG — Better Share on Social Media
  * Plugin URI:        https://github.com/iworks/og/
  * Description:       Very tiny Open Graph plugin - add featured image as facebook image. This plugin do not have any configuration - you can check how it works looking into page source.
- * Version:           3.3.8
+ * Version:           3.3.9
  * Requires at least: 6.0
  * Requires PHP:      8.0
  * Author:            Marcin Pietrzak

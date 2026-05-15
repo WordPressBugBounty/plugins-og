@@ -1,7 +1,7 @@
 <?php
 /*
 
-Copyright 2014-2025 Marcin Pietrzak (marcin@iworks.pl)
+Copyright 2014-2026 Marcin Pietrzak (marcin@iworks.pl)
 
 this program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -24,7 +24,7 @@ if ( class_exists( 'iWorks_OpenGraph' ) ) {
 
 class iWorks_OpenGraph {
 	private $youtube_meta_name = 'iworks_yt_thumbnails';
-	private $version           = '3.3.8';
+	private $version           = '3.3.9';
 	private $debug             = false;
 	private $locale            = null;
 
